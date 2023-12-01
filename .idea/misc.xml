@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/drawable/tab_indicator.xml" value="0.1305" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/font/actor.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_main.xml" value="0.1" />
       </map>
     </option>
   </component>
