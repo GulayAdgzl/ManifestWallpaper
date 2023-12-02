@@ -10,7 +10,7 @@ interface RetrofitService {
     suspend fun getPhotos(
         @Query("client_id") clientId:String=TOKEN,
         @Query("page") page:Int,
-        @Query("per_page") perPage:Int=30
+        @Query("per_page") perPage:Int=7
 
     ):List<Wallpaper>
 }

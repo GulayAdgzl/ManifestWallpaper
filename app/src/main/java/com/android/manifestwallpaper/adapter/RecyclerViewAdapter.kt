@@ -9,20 +9,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.manifestwallpaper.R
 import com.android.manifestwallpaper.databinding.ItemRecyclerviewBinding
 import com.android.manifestwallpaper.model.Wallpaper
+import com.android.manifestwallpaper.util.BlurHashDecoder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 
 class RecyclerViewAdapter:PagingDataAdapter<Wallpaper,RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
     inner class MyViewHolder(view: View):RecyclerView.ViewHolder(view){
         private val binding=ItemRecyclerviewBinding.bind(view)
+
+
+
         fun bind(data: Wallpaper?){
+            val blurHashAsDrawable=BlurHashDecoder.blurHashBitmap(itemView.resources,data)
             if (data != null) {
                 Glide.with(itemView.context)
                     .asBitmap()
                     .load(data.urls.small)
                     .centerCrop()
                     .transition(BitmapTransitionOptions.withCrossFade(80))
-                    .error(R.drawable.ic_baseline_error_24)
+                    //.error(R.drawable.ic_baseline_error_24)
+                    .error(blurHashAsDrawable)
+                    .placeholder(blurHashAsDrawable)
                     .into(binding.imageView)
             }
         }
