@@ -67,11 +67,14 @@ dependencies {
     //implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
     kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
 
     // Room
     implementation ("androidx.room:room-runtime:2.6.0")
     implementation ("androidx.room:room-ktx:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
+
 
 
     //Navigation
@@ -85,6 +88,7 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
 
     //Retrofit with Moshi Converter
+
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
 
     //Glide
