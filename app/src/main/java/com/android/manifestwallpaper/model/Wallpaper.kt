@@ -1,6 +1,6 @@
 package com.android.manifestwallpaper.model
 
-data class Walllpaper (
+data class Wallpaper (
     val id:String,
     val urls:UnsplashPhotoUrls
         )

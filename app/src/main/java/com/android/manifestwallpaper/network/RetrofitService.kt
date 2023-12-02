@@ -1,6 +1,6 @@
 package com.android.manifestwallpaper.network
 
-import com.android.manifestwallpaper.model.Walllpaper
+import com.android.manifestwallpaper.model.Wallpaper
 import com.android.manifestwallpaper.util.TOKEN
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,5 +12,5 @@ interface RetrofitService {
         @Query("page") page:Int,
         @Query("per_page") perPage:Int=30
 
-    ):List<Walllpaper>
+    ):List<Wallpaper>
 }

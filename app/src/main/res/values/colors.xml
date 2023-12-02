@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="main_color">#b5c6d4</color>
     <color name="background">#a2b2be</color>
+    <color name="toolbar">#bdc3c7</color>
     <color name="gray">#EAECEE</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
