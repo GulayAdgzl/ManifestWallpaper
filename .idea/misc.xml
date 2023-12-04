@@ -6,12 +6,13 @@
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/drawable/tab_indicator.xml" value="0.1305" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/font/actor.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/dialog_loading.xml" value="0.15078125" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_categories.xml" value="0.18489583333333334" />
-        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_main.xml" value="0.176" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_popular.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/fragment_random.xml" value="0.18489583333333334" />
-        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/item_recyclerview.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/ManifestWallpaper/app/src/main/res/layout/item_recyclerview.xml" value="0.2" />
       </map>
     </option>
   </component>

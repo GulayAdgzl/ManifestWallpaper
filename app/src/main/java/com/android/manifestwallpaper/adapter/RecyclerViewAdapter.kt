@@ -1,60 +1,78 @@
 package com.android.manifestwallpaper.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.manifestwallpaper.R
 import com.android.manifestwallpaper.databinding.ItemRecyclerviewBinding
 import com.android.manifestwallpaper.model.Wallpaper
-import com.android.manifestwallpaper.util.BlurHashDecoder
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
+import javax.inject.Inject
 
-class RecyclerViewAdapter:PagingDataAdapter<Wallpaper,RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
-    inner class MyViewHolder(view: View):RecyclerView.ViewHolder(view){
-        private val binding=ItemRecyclerviewBinding.bind(view)
+class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,RecyclerViewAdapter.MyViewHolder>( PHOTO_COMPARATOR){
+    private lateinit var binding:ItemRecyclerviewBinding
 
+  inner class MyViewHolder():RecyclerView.ViewHolder(binding.root){
+      fun bind(photo: Wallpaper?) {
+          binding.apply {
+              if (photo != null) {
+                  Glide.with(itemView.context)
+                      .load(photo.urls.small)
+                  Log.e("HECTOR" , "small --> "+photo.urls.small +"\n mid --> "  +photo.urls.medium +"\n large --> "+photo.urls.large +"\n ")
+              } else {
+                  imageView.setImageDrawable(null)
+              }
+              root.setOnClickListener {
+                  onItemClickListener?.let {
+                      photo?.let { pic -> it(pic) }
+                  }
+              }
+          }
+      }
 
-
-        fun bind(data: Wallpaper?){
-            val blurHashAsDrawable=BlurHashDecoder.blurHashBitmap(itemView.resources,data)
-            if (data != null) {
-                Glide.with(itemView.context)
-                    .asBitmap()
-                    .load(data.urls.small)
-                    .centerCrop()
-                    .transition(BitmapTransitionOptions.withCrossFade(80))
-                    //.error(R.drawable.ic_baseline_error_24)
-                    .error(blurHashAsDrawable)
-                    .placeholder(blurHashAsDrawable)
-                    .into(binding.imageView)
-            }
-        }
-
-    }
+  }
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val photo = getItem(position)
+        val photo=getItem(position)
+
         holder.bind(photo)
     }
+    override fun getItemViewType(position : Int) : Int
+    {
+        return position
+    }
+
+    private var onItemClickListener : ((Wallpaper) -> Unit?)? = null
+
+    fun setOnItemClickListener(listener : (Wallpaper) -> Unit)
+    {
+        onItemClickListener = listener
+    }
+
+
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val inflater=LayoutInflater.from(parent.context).inflate(R.layout.item_recyclerview,parent,false)
-        return MyViewHolder(inflater)
+
+        binding=ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return MyViewHolder()
     }
-    class DiffUtilCallBack:DiffUtil.ItemCallback<Wallpaper>(){
+    companion object {
+        private val PHOTO_COMPARATOR = object : DiffUtil.ItemCallback<Wallpaper>() {
+            override fun areItemsTheSame(oldItem: Wallpaper , newItem: Wallpaper): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-        override fun areItemsTheSame(oldItem: Wallpaper, newItem: Wallpaper): Boolean {
-            return oldItem.id == newItem.id
+            override fun areContentsTheSame(oldItem: Wallpaper , newItem: Wallpaper): Boolean {
+                return oldItem == newItem
+            }
         }
-
-        override fun areContentsTheSame(oldItem: Wallpaper, newItem: Wallpaper): Boolean {
-            return oldItem == newItem
-        }
-
     }
+
+
 }
