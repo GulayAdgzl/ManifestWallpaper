@@ -7,6 +7,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.android.manifestwallpaper.databinding.ItemRecyclerviewBinding
 import com.android.manifestwallpaper.model.Wallpaper
 import com.bumptech.glide.Glide
@@ -18,9 +19,15 @@ class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,Rec
   inner class MyViewHolder():RecyclerView.ViewHolder(binding.root){
       fun bind(photo: Wallpaper?) {
           binding.apply {
-              if (photo != null) {
+              /*if (photo != null) {
                   Glide.with(itemView.context)
                       .load(photo.urls.small)
+                  Log.e("HECTOR" , "small --> "+photo.urls.small +"\n mid --> "  +photo.urls.medium +"\n large --> "+photo.urls.large +"\n ")
+              } else {
+                  imageView.setImageDrawable(null)
+              }*/
+              if (photo != null) {
+                  imageView.load(photo.urls.small)
                   Log.e("HECTOR" , "small --> "+photo.urls.small +"\n mid --> "  +photo.urls.medium +"\n large --> "+photo.urls.large +"\n ")
               } else {
                   imageView.setImageDrawable(null)

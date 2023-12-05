@@ -15,11 +15,11 @@ class HomePagingSource (
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Wallpaper> {
         return try{
-            val page=params.key ?: FIRST_PAGE_INDEX
+            val page=params.key ?: 1
             val photos=apiService.getPhotos(page = page)
             LoadResult.Page(
                 data=photos,
-                prevKey = if(page == FIRST_PAGE_INDEX) null else page -1,
+                prevKey = if(page == 1) null else page -1,
                 nextKey = if(photos.isEmpty()) null else page +1
             )
         }catch (e:Exception){
@@ -27,8 +27,6 @@ class HomePagingSource (
         }
     }
 
-    companion object{
-        private const val FIRST_PAGE_INDEX=1
-    }
+
 
 }

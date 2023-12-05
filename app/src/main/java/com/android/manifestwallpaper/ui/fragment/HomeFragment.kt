@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
 
 
 
+
             swipeRefreshLayout.setOnRefreshListener {
                 recyclerViewAdapter.refresh()
             }
@@ -72,6 +73,7 @@ class HomeFragment : Fragment() {
                     swipeRefreshLayout.isRefreshing = loadStates.refresh is LoadState.Loading
                 }
             }
+
 
             recyclerViewAdapter.setOnItemClickListener {
                 val loading = Dialog(requireContext())
@@ -92,7 +94,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-    }
 
+    }
 
 }

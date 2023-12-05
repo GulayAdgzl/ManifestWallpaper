@@ -22,9 +22,6 @@ class HomeViewModel @Inject constructor
     pagingSourceFactory = {
         HomePagingSource(retrofitService)
     }).flow
-        //.cachedIn(viewModelScope)
-
-
 
 }
 
