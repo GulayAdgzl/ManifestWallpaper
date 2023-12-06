@@ -4,13 +4,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.android.manifestwallpaper.databinding.ItemRecyclerviewBinding
 import com.android.manifestwallpaper.model.Wallpaper
-import com.bumptech.glide.Glide
 import javax.inject.Inject
 
 class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,RecyclerViewAdapter.MyViewHolder>( PHOTO_COMPARATOR){
@@ -19,16 +17,11 @@ class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,Rec
   inner class MyViewHolder():RecyclerView.ViewHolder(binding.root){
       fun bind(photo: Wallpaper?) {
           binding.apply {
-              /*if (photo != null) {
-                  Glide.with(itemView.context)
-                      .load(photo.urls.small)
-                  Log.e("HECTOR" , "small --> "+photo.urls.small +"\n mid --> "  +photo.urls.medium +"\n large --> "+photo.urls.large +"\n ")
-              } else {
-                  imageView.setImageDrawable(null)
-              }*/
+
               if (photo != null) {
                   imageView.load(photo.urls.small)
-                  Log.e("HECTOR" , "small --> "+photo.urls.small +"\n mid --> "  +photo.urls.medium +"\n large --> "+photo.urls.large +"\n ")
+                  Log.e("HECTOR" , "small --> "+photo.urls.small)
+
               } else {
                   imageView.setImageDrawable(null)
               }

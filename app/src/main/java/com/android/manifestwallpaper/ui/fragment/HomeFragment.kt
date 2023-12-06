@@ -82,6 +82,7 @@ class HomeFragment : Fragment() {
                 loading.setCancelable(false)
                 lifecycleScope.launch {
                     loading.show()
+                  // if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     {
                         loading.dismiss()

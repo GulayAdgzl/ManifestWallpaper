@@ -16,9 +16,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor
     (private val retrofitService:RetrofitService)  :ViewModel() {
 
-
     val homePage: Flow<PagingData<Wallpaper>> = Pager(
-        config = PagingConfig(pageSize = 40, enablePlaceholders = false),
+        config = PagingConfig(pageSize = 10, enablePlaceholders = false),
     pagingSourceFactory = {
         HomePagingSource(retrofitService)
     }).flow
