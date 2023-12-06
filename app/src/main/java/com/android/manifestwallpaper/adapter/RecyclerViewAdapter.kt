@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.android.manifestwallpaper.databinding.ItemRecyclerviewBinding
 import com.android.manifestwallpaper.model.Wallpaper
+import com.android.manifestwallpaper.util.BlurHashDecoder
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import javax.inject.Inject
 
 class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,RecyclerViewAdapter.MyViewHolder>( PHOTO_COMPARATOR){
@@ -18,12 +21,20 @@ class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,Rec
       fun bind(photo: Wallpaper?) {
           binding.apply {
 
+              //denem
+              val blurHashAsDrawable=BlurHashDecoder.blurHashBitmap(imageView.resources,photo)
+
+
               if (photo != null) {
-                  imageView.load(photo.urls.small)
+
+                      imageView.load(photo.urls.small)
+
                   Log.e("HECTOR" , "small --> "+photo.urls.small)
 
               } else {
-                  imageView.setImageDrawable(null)
+                  //imageView.setImageDrawable(null)
+                  imageView.setImageDrawable(blurHashAsDrawable)
+
               }
               root.setOnClickListener {
                   onItemClickListener?.let {

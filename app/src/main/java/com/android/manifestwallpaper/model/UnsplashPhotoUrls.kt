@@ -6,5 +6,6 @@ data class UnsplashPhotoUrls(
     @SerializedName("small")
     val small:String,
     @SerializedName("large")
-    val large:String
+    val large:String,
+
 )

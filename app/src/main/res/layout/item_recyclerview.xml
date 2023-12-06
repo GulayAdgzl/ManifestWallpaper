@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         app:strokeWidth="30dp"
         android:layout_margin="4dp"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="8dp"
         app:cardCornerRadius="10dp">
 
@@ -17,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@color/gray"
+            tools:ignore="ContentDescription"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop" />
 
