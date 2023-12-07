@@ -1,8 +1,6 @@
 # App Introduction: Manifest Wallpaper
 
 
-
-
 ![Date Wise](https://github.com/GulayAdgzl/ManifestWallpaper/assets/44726684/a4f4ae29-ee69-49a2-b899-14e97be237c8)
 
 **Manifest Wallpaper** is an immersive mobile application designed to provide users with a diverse collection of stunning wallpapers. Users can seamlessly explore and discover their favorite wallpapers within the app, adding a distinctive touch to their home screens.
@@ -45,5 +43,11 @@
 
 - **Coroutine:**
   - Kotlin Coroutines are employed for managing asynchronous tasks, providing a user-friendly and responsive experience.
+
+### API Information:
+
+The application fetches its data from a custom JSON dataset hosted on the [GitHub page](https://github.com/GulayAdgzl/character-api) at the following URL:
+
+[https://raw.githubusercontent.com/GulayAdgzl/character-api/main/books.json](https://raw.githubusercontent.com/GulayAdgzl/character-api/main/books.json)
 
 **Manifest Wallpaper** offers a comprehensive solution to customize your wallpapers, transforming your device into a canvas of creativity. Explore, select, and enhance your device with a touch of artistic flair!
