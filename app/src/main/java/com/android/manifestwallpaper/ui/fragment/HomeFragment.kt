@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.android.manifestwallpaper.adapter.RecyclerViewAdapter
 import com.android.manifestwallpaper.databinding.DialogLoadingBinding
 import com.android.manifestwallpaper.databinding.FragmentHomeBinding
+import com.android.manifestwallpaper.util.BlurHashDecoder
 import com.android.manifestwallpaper.util.SetWallpaperTask
 import com.android.manifestwallpaper.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -84,13 +85,14 @@ class HomeFragment : Fragment() {
             recyclerViewAdapter.setOnItemClickListener {
 
 
+
                 val loading = Dialog(requireContext())
                 val bindingLoading = DialogLoadingBinding.inflate(layoutInflater)
                 loading.setContentView(bindingLoading.root)
                 loading.setCancelable(false)
                 lifecycleScope.launch {
+
                     loading.show()
-                  // if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     {
                         loading.dismiss()

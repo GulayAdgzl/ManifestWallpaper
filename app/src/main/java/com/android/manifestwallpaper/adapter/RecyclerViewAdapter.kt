@@ -41,6 +41,7 @@ class RecyclerViewAdapter @Inject constructor() :PagingDataAdapter<Wallpaper,Rec
                       photo?.let { pic -> it(pic) }
                   }
               }
+
           }
       }
 
