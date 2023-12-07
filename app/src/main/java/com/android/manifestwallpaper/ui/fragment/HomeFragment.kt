@@ -1,6 +1,7 @@
 package com.android.manifestwallpaper.ui.fragment
 
 
+
 import android.app.Dialog
 import android.app.WallpaperManager
 import android.os.Bundle
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.android.manifestwallpaper.adapter.RecyclerViewAdapter
 import com.android.manifestwallpaper.databinding.DialogLoadingBinding
 import com.android.manifestwallpaper.databinding.FragmentHomeBinding
+import com.android.manifestwallpaper.util.BlurHashDecoder
 import com.android.manifestwallpaper.util.SetWallpaperTask
 import com.android.manifestwallpaper.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,11 +39,15 @@ class HomeFragment : Fragment() {
 
 
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -75,18 +81,24 @@ class HomeFragment : Fragment() {
             }
 
 
+
             recyclerViewAdapter.setOnItemClickListener {
+
+
+
                 val loading = Dialog(requireContext())
                 val bindingLoading = DialogLoadingBinding.inflate(layoutInflater)
                 loading.setContentView(bindingLoading.root)
                 loading.setCancelable(false)
                 lifecycleScope.launch {
+
                     loading.show()
-                  // if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     if (SetWallpaperTask(it.urls.large,wallpaperManager).execute())
                     {
                         loading.dismiss()
+
                         Toast.makeText(requireContext() , "The wallpaper has been successfully changed." , Toast.LENGTH_SHORT).show()
+
                     }else
                     {
                         loading.dismiss()
